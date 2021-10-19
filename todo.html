@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-do React app!</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"> </script>
+
+ </head>
+
+ <body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+      class Todo extends React.Component
+      {
+        constructor(props){
+          super(props);
+          this.state = {
+            input: "";
+            todos: [],
+          };
+        }
+
+        render()
+        {
+          return(
+          <div>
+              <h1>TODO app</h1>
+              <input type="text"  placeholder="Add todo"/>
+              <button>Add Todo</button>
+          </div>
+          );
+
+        }
+      }
+
+      class App extends React.Component{
+        render(){
+          return(
+          <Todo />
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+    </script>

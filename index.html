@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Learning React!</title>
+    <title>Math Quiz web-app!</title>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin> </script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin> </script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"> </script>
@@ -46,7 +46,7 @@
                   <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse} type="text" value={this.state.response} />
                   <div>Score: {this.state.score}</div>
                   <br/>
-                  <button onClick={this.reset}>Reset</button>
+                  <button>Reset</button>
                 </div>
               );
             }
@@ -88,15 +88,6 @@
               }
             }
 
-            reset = () => {
-              this.setState({
-                num1: 1,
-                num2: 1,
-                response: "",
-                score: 0,
-                incorrect: false
-              })
-            }
 
 
           }
