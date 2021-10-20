@@ -17,8 +17,8 @@
         constructor(props){
           super(props);
           this.state = {
-            input: "";
-            todos: [],
+            input: "",
+            todos: []
           };
         }
 
@@ -27,12 +27,42 @@
           return(
           <div>
               <h1>TODO app</h1>
-              <input type="text"  placeholder="Add todo"/>
-              <button>Add Todo</button>
+              <ul>
+                {this.state.todos.map((todo,i) =>
+                  <li key={i}><button onClick={() => this.deleteTask(i)}>X</button> {todo}</li>
+              )}
+            </ul>
+              <input onChange={this.updateResponse} type="text"  placeholder="Add todo"/>
+              <button onClick={this.addTask}>Add Todo</button>
           </div>
           );
 
         }
+
+        addTask = () => {
+            var copy = [...this.state.todos];
+            copy  = [...copy, this.state.input];
+            this.setState({
+              todos: copy,
+              input: ""
+            });
+        }
+
+        deleteTask = (i) => {
+          var copy = [...this.state.todos];
+          copy.splice(i,1);
+          this.setState({
+            todos: copy
+          });
+        }
+
+        updateResponse = (event) => {
+          this.setState({
+            input: event.target.value
+          });
+        }
+
+
       }
 
       class App extends React.Component{
